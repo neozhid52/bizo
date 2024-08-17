@@ -1,0 +1,42 @@
+from PyQt6.QtWidgets import QApplication, QWidget, QLabel, QRadioButton, QMessageBox, QPushButton, QVBoxLayout
+from PyQt6.QtCore import Qt 
+app = QApplication([])
+
+main_window = QWidget()
+main_window.setGeometry(100, 100, 200, 200)
+text = QLabel("Яка столиця КНДР?")
+
+btn_answer1 = QRadioButton("Коломия")
+btn_answer2 = QRadioButton("П'єдики")
+btn_answer3 = QRadioButton("Пхеньян")
+btn_answer4 = QRadioButton("Снєтин")
+
+button_check = QPushButton("Перевірити")
+
+v_layout = QVBoxLayout()
+h_layout1 = QVBoxLayout()
+h_layout2 = QVBoxLayout()
+
+h_layout1.addWidget(btn_answer1)
+h_layout1.addWidget(btn_answer2)
+h_layout2.addWidget(btn_answer3)
+h_layout2.addWidget(btn_answer4)
+h_layout2.addWidget(text)
+v_layout.addLayout(h_layout2)
+v_layout.addLayout(h_layout1)
+v_layout.addWidget(button_check)
+
+def show_win():
+    victory = QMessageBox()
+    victory.setText("Вірно! П'ядики - це столиця України")
+    victory.exec()
+
+def click():
+    if btn_answer4.isChecked():
+        show_win()
+    else:
+
+button_check.connect(click)
+main_window.setLayout
+main_window.show()
+app.exec()
